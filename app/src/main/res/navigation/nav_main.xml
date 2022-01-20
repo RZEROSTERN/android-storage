@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.wizeline.androidstorage.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_storageFragment"
+            app:destination="@id/storageFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_sharedPreferencesFragment"
+            app:destination="@id/sharedPreferencesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_roomFragment"
+            app:destination="@id/roomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="com.wizeline.androidstorage.fragments.StorageFragment"
+        android:label="fragment_storage"
+        tools:layout="@layout/fragment_storage" >
+        <action
+            android:id="@+id/action_storageFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sharedPreferencesFragment"
+        android:name="com.wizeline.androidstorage.fragments.SharedPreferencesFragment"
+        android:label="fragment_shared_preferences"
+        tools:layout="@layout/fragment_shared_preferences" >
+        <action
+            android:id="@+id/action_sharedPreferencesFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.wizeline.androidstorage.fragments.RoomFragment"
+        android:label="fragment_room"
+        tools:layout="@layout/fragment_room" >
+        <action
+            android:id="@+id/action_roomFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+</navigation>
