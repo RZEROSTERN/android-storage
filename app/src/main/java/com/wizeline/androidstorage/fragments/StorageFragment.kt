@@ -66,9 +66,13 @@ class StorageFragment : Fragment() {
 
     private fun createFile() {
         val initialContent = "{}"
+
         requireContext().openFileOutput(fileName, Context.MODE_PRIVATE).use {
             it.write(initialContent.toByteArray())
         }
+
+        binding.btnCreateFile.visibility = View.INVISIBLE
+        binding.txtContent.text = "Ready to comply!"
     }
 
     private fun addNodeToFile() {
@@ -103,6 +107,8 @@ class StorageFragment : Fragment() {
 
         builder.setPositiveButton(android.R.string.yes) { _, _ ->
             requireContext().deleteFile(fileName)
+            binding.btnCreateFile.visibility = View.VISIBLE
+            binding.txtContent.text = "Wiped data!"
         }
 
         builder.setNegativeButton(android.R.string.no) { dialog, _ ->
