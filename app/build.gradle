@@ -3,8 +3,12 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'kotlin-kapt'
+
 def versions = [
-    "appcompat" : "1.4.1"
+    "appcompat" : "1.4.1",
+    "room" : "2.4.1",
+    "gson" : "2.8.6"
 ]
 
 android {
@@ -50,4 +54,22 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation "androidx.room:room-runtime:$versions.room"
+    implementation "androidx.room:room-ktx:$versions.room"
+    kapt "androidx.room:room-compiler:$versions.room"
+
+    implementation "com.google.code.gson:gson:$versions.gson"
+
+    // optional - RxJava2 support for Room
+    // implementation "androidx.room:room-rxjava2:$versions.room"
+    // optional - RxJava3 support for Room
+    // implementation "androidx.room:room-rxjava3:$versions.room"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    // implementation "androidx.room:room-guava:$versions.room"
+
+    // optional - Test helpers
+    // testImplementation "androidx.room:room-testing:$versions.room"
+
 }
